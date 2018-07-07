@@ -2,7 +2,7 @@
 Simulation for thesis
 
 ### Large Scale Naming Convention
-"large_<month>_<day>"
+"large_month_day"
 
 ### Small Scale Naming Convention
-"small_<month>_<day>"
+"small_month_day"
