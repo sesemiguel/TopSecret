@@ -10,19 +10,19 @@ import matplotlib.pyplot as plt
 ##################################################
 #		   			CONSTANTS 		             #
 ##################################################
-filename = "yappie.png"													# Input file
+filename = "small_scale_image.png"													# Input file
 np.set_printoptions(precision=4)										# Number of decimal places
 input_img = np.invert(np.array(Image.open(filename).convert("L")))/255	# Input for convolution array
 
 ### VALUES
 depth 			=	3									# Number of Depth of filter & conv nodes
-f_rows 			=	2									# Number of Filter Rows
-f_cols 			=	2									# Number of Filter Columns
+f_rows 			=	3									# Number of Filter Rows
+f_cols 			=	3									# Number of Filter Columns
 outputs 		=	4									# Number of Outputs
 conv_rows 		=	(input_img.shape[0] - f_rows) + 1	# Number of Rows in Convolution Nodes
 conv_cols		=	(input_img.shape[1] - f_cols) + 1	# Number of Columns in Convolution Nodes
 total_weights	=	depth*conv_rows*conv_cols			# Number of Total Weights
-iteration		=	10									# Number of Iterations
+iteration		=	1000								# Number of Iterations
 L_rate			=	.5									# Learning Rate
 temp = 0 												# Temporary value for incrementing convolution nodes
 
@@ -202,7 +202,7 @@ def pd_csv_to_2darray(input_filename):
 convolved_nodes = np.zeros([depth,conv_rows,conv_cols])
 
 # Random initial weights for convolution layer to output layer
-convolved_nodes_to_output_nodes = new_weights_random(total_weights, outputs, 0)#pd_csv_to_2darray("Initial_weights_small_scale.csv")
+convolved_nodes_to_output_nodes = pd_csv_to_2darray("Initial_weights_small_scale.csv")#new_weights_random(total_weights, outputs, 0)
 
 # Target Array
 target_array = np.array([1,0,0,0])
@@ -332,7 +332,24 @@ for x in range(1, iteration):
 	# Updating the filters
 	for x in range(0, input_filter.shape[0]):
 		input_filter[x] = signal.convolve(input_img, convolved_nodes[x], mode="valid")
-	print("UPDATED FILTERS")
+	# print("UPDATED FILTERS")
 
 print(input_filter)
 pd_3darray_to_csv(input_filter, "Final_filters_small_scale.csv")
+
+plt.subplot(221).set_title("Final Filter 1")
+plt.imshow(input_filter[0])
+plt.clim(0,2.4199)
+plt.axis('off')
+plt.colorbar()
+plt.subplot(222).set_title("Final Filter 2")
+plt.imshow(input_filter[1])
+plt.axis('off')
+plt.clim(0,2.4199)
+plt.colorbar()
+plt.subplot(223).set_title("Final Filter 3")
+plt.imshow(input_filter[2])
+plt.axis('off')
+plt.clim(0,2.4199)
+plt.colorbar()
+plt.show()
