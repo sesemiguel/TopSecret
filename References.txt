@@ -1,0 +1,51 @@
+________________________________________Online References_________________________________________
+
+[1] http://cs231n.github.io/convolutional-networks/
+
+________________________________________Offline References________________________________________
+
+
+[1] C. Stergiou and D. Siganos, “Neural networks,”
+
+[2] “An intuitive explanation of convolutional neural networks,” 2016.
+
+[3] J. Wu, “Introduction to convolutional neural networks,” 2017.
+
+[4] “Introduction to fpga technology: Top 5 benefits,” National Instruments, 2012.
+
+[5] K. Matthews, “6 reasons why python is suddenly super popular,” KDnuggets, 2017.
+
+[6] A. Razavian, H. Azizpour, J. Sullivan, and S. Carlsson, “Cnn features off-the-shelf: An
+astounding baseline for recognition,” IEEE, 2014.
+
+[7] R. Girshick, J. Donahue, T. Darrel, and J. Malik, “Rich feature hierarchies for accurate object
+detection and semantic segmentation,” 2014.
+
+[8] M. Shopon, N. Mohammed, and M. Abedin, “Image augmentation by blocky artifact in deep
+convolutional neural network for handwritten digit recognition,” 2017.
+
+[9] M. Bacis, G. Natale, E. D. Sozzo, and M. Santambrogio, “A pipelined and scalable dataflow
+implementation of convolutional neural networks on fpga,” 2017.
+
+[10] A. Podili, C. Zhang, and V. Prasanna, “Fast and efficient implementation of convolutional
+neural networks on fpga,” 2017.
+
+[11] P. Louridas and C. Ebert, “Machine learning,” 2016.
+
+[12] B. Chacko and B. Anto, “Pre and post processing approaches in edge detection for character
+recognition,” 2011.
+
+[13] J. Brownlee, “Handwritten digit recognition using convolutional neural networks in python
+with keras,” 2016.
+
+[14] “Application of feed-forward networks - character recognition,”
+
+(a) Jarrett, K., Kavukcuoglu, K. and Lecun, Y., 2009, September. What is the best multi-stage architecture for object recognition?. In 2009 IEEE 12th International Conference on Computer Vision (pp. 2146-2153). IEEE.
+
+(b) Saxe, A., Koh, P.W., Chen, Z., Bhand, M., Suresh, B. and Ng, A.Y., 2011. On random weights and unsupervised feature learning. In Proceedings of the 28th international conference on machine learning (ICML-11) (pp. 1089-1096).
+
+(c) Masci, J., Meier, U., Ciresan, D. and Schmidhuber, J., 2011, June. Stacked convolutional auto-encoders for hierarchical feature extraction. In International Conference on Artificial Neural Networks (pp. 52-59). Springer Berlin Heidelberg.
+
+(d) Lee, H., Grosse, R., Ranganath, R. and Ng, A.Y., 2009, June. Convolutional deep belief networks for scalable unsupervised learning of hierarchical representations. In Proceedings of the 26th annual international conference on machine learning (pp. 609-616). ACM.
+
+(e) Coates, A., Lee, H. and Ng, A.Y., 2010. An analysis of single-layer networks in unsupervised feature learning. Ann Arbor, 1001(48109), p.2.
