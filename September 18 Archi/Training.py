@@ -13,11 +13,11 @@ np.set_printoptions(precision=4)
 depth 			=	8									
 
 #
-mnist_depth		=	100
+mnist_depth		=	10000
 
 # Input Layer Dimensions
-input_rows		=	14
-input_cols		=	14
+input_rows		=	9
+input_cols		=	9
 
 # Filter Dimensions
 f_rows 			=	3									
@@ -34,10 +34,10 @@ conv_cols		=	(input_cols - f_cols) + 1
 total_weights	=	depth*conv_rows*conv_cols			
 
 # Number of Iterations
-iteration		=	20				
+iteration		=	1				
 
 # Learning Rate
-L_rate			=	.001
+L_rate			=	.0005
 
 # Temporary value for incrementing convolution nodes							
 temp = 0 	
@@ -239,12 +239,12 @@ image7 = "7.png"
 image8 = "8.png" 
 image_test = "test.png"
 
-mnist_array = get_mnist("3Dmaxpool.csv")
-target_array = pd_csv_to_2darray("target_array.csv")
+mnist_array = get_mnist("mnist_full_data_3d_9x9_train_1.csv")
+target_array = pd_csv_to_2darray("target_array_full_9x9.csv")
 print("Shape")
 print(mnist_array)
 
-for jakol in range(0,20):
+for jakol in range(0,1):
 	print("Epoch: " , jakol+1)
 	for x in range(0, mnist_depth):
 		print(x)

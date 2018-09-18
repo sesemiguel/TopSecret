@@ -13,11 +13,12 @@ np.set_printoptions(precision=4)
 depth 			=	8
 
 # Number of Test Data
-mnist_depth		=	10								
+mnist_depth		=	10	
+mnist_depth_input = 10							
 
 # Input Layer Dimensions
-input_rows		=	14
-input_cols		=	14
+input_rows		=	9
+input_cols		=	9
 
 # Filter Dimensions
 f_rows 			=	3									
@@ -61,7 +62,7 @@ def sigmoid_function(x):
 
 # ReLU activation implementation
 def relu_activation(data_array):
-    return np.maximum(data_array, 0)
+    return data_array * (data_array>0)
 
 # Normalization Function
 def norm(x):
@@ -80,11 +81,12 @@ def pd_csv_to_2darray(input_filename):
 def pd_csv_to_3darray(filename_input):
 	try:
 		temp_array_1 = np.genfromtxt(filename_input,delimiter=',')
-		temp_array_2 = np.zeros([mnist_depth,input_rows,input_cols])
+		print(temp_array_1)
+		temp_array_2 = np.zeros([mnist_depth_input,input_rows,input_cols])
 		count = 1
 		for x in range(0,input_rows):
 			for y in range(0,input_cols):
-				for z in range(0,mnist_depth):
+				for z in range(0,mnist_depth_input):
 					temp_array_2[z][y][x] = temp_array_1[count][3]
 					count += 1
 		return temp_array_2
@@ -130,9 +132,12 @@ def Recognition(input_img, input_filter):
 	# Convolution
 	for i in range(0, input_filter.shape[0]):
 		convolved_nodes[i] = signal.convolve(input_img, input_filter[i], mode="valid")
+	print("MAX MIN")
+	print(np.argmax(convolved_nodes))
+	print(np.argmin(convolved_nodes))
 
 	# Sigmoid activation of convolution node
-	convolved_nodes_sigmoid = sigmoid_function(convolved_nodes)
+	convolved_nodes_sigmoid = relu_activation(convolved_nodes)
 
 	# Flattening of sigmoid activated convolution layer
 	convolved_nodes_sigmoid_flat = convolved_nodes_sigmoid.reshape(1,total_weights)
@@ -154,16 +159,25 @@ input_filter = pd_csv_to_3darray_filter("filters.csv")
 
 
 
-input_image = get_mnist("3Dmaxpool.csv")
+input_image = get_mnist("mnist_data_3d_9x9_test.csv")
 
 print(input_image[0])
+print(input_image[1])
+print(input_image[2])
+print(input_image[3])
+print(input_image[4])
+print(input_image[5])
+print(input_image[6])
+print(input_image[7])
+print(input_image[8])
+print(input_image[9])
 print(input_filter)
 
-for x in range (0, 10):
+for x in range (0, mnist_depth):
 	out, out_s = Recognition(input_image[x], input_filter)
 	print("Predicted Image:",(np.argmax(out_s)))
 	# print("Confidence:%.2f" % (np.amax(out_s)*100)+"%")
-	print(out)
+	print(out_s)
 	
 # ### Plotting
 # plt.subplot(441).set_title("Final Filter 1")
