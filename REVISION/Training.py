@@ -34,7 +34,7 @@ total_weights	=	depth*conv_rows*conv_cols
 iteration		=	10000				
 
 # Learning Rate
-L_rate			=	.01
+L_rate			=	.125
 
 # Temporary value for incrementing convolution nodes							
 temp = 0 												
@@ -54,7 +54,7 @@ convolved_nodes_to_output_nodes = np.random.rand(total_weights, outputs)#pd_csv_
 # Input Filter
 # input_filter = np.random.rand(depth, f_rows, f_cols)
 input_filter = np.array([[[0.5,0.5,0.5],[0.5,0.5,0.5],[0.5,0.5,0.5]],[[0.5,0.5,0.5],[0.5,0.5,0.5],[0.5,0.5,0.5]],[[0.5,0.5,0.5],[0.5,0.5,0.5],[0.5,0.5,0.5]]])
-input_filter = input_filter/np.amax(input_filter)
+# input_filter = input_filter*.125#input_filter/np.amax(input_filter)
 
 ### FUNCTIONS
 ## Activation Functions
@@ -201,7 +201,7 @@ def Training(input_img, input_filter, convolved_nodes_to_output_nodes, target_va
 	# print(input_filter)
 	# input_filter = norm(input_filter)
 
-	input_filter = input_filter/np.amax(input_filter)
+	input_filter = input_filter*.5#input_filter/np.amax(input_filter)
 
 	return input_filter, convolved_nodes_to_output_nodes, output_nodes_flat_column, softmax_output
 
