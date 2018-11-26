@@ -52,8 +52,8 @@ def pd_csv_to_2darray(input_filename):
 convolved_nodes_to_output_nodes = np.random.rand(total_weights, outputs)#pd_csv_to_2darray("initial_weights.csv")np.random.rand(total_weights, outputs)
 
 # Input Filter
-# input_filter = np.random.rand(depth, f_rows, f_cols)
-input_filter = np.array([[[0.5,0.5,0.5],[0.5,0.5,0.5],[0.5,0.5,0.5]],[[0.5,0.5,0.5],[0.5,0.5,0.5],[0.5,0.5,0.5]],[[0.5,0.5,0.5],[0.5,0.5,0.5],[0.5,0.5,0.5]]])
+input_filter = np.random.rand(depth, f_rows, f_cols)
+# input_filter = np.array([[[0.5,0.5,0.5],[0.5,0.5,0.5],[0.5,0.5,0.5]],[[0.5,0.5,0.5],[0.5,0.5,0.5],[0.5,0.5,0.5]],[[0.5,0.5,0.5],[0.5,0.5,0.5],[0.5,0.5,0.5]]])
 # input_filter = input_filter*.125#input_filter/np.amax(input_filter)
 
 ### FUNCTIONS
@@ -202,20 +202,31 @@ def Training(input_img, input_filter, convolved_nodes_to_output_nodes, target_va
 	# input_filter = norm(input_filter)
 
 	input_filter = input_filter*.5#input_filter/np.amax(input_filter)
+	# convolved_nodes_to_output_nodes = convolved_nodes_to_output_nodes*.5
 
 	return input_filter, convolved_nodes_to_output_nodes, output_nodes_flat_column, softmax_output
 
 ### Training
 # Images used
+# image1 = "number0.png"
+# image2 = "number1.png"
+# image3 = "number4.png"
+# image4 = "number7.png"
+
+# image1 = "number2.png"
+# image2 = "number3.png"
+# image3 = "number4.png"
+# image4 = "number7.png"
+
 image1 = "number0.png"
 image2 = "number1.png"
-image3 = "number4.png"
-image4 = "number7.png"
-# image5 = "5.png" 
-# image6 = "6.png" 
-# image7 = "7.png" 
-# image8 = "8.png" 
-# image_test = "test.png"
+image3 = "number5.png"
+image4 = "number6.png"
+
+# image1 = "number0.png"
+# image2 = "number9.png"
+# image3 = "number8.png"
+# image4 = "number7.png"
 
 for x in range(0, iteration):
 	print(x)

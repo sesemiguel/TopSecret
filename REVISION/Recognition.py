@@ -21,7 +21,7 @@ f_rows 			=	3
 f_cols 			=	3
 
 # Number of Outputs
-outputs 		=	2							
+outputs 		=	4							
 
 # Convolution Layer Dimensions
 conv_rows 		=	(input_rows - f_rows) + 1
@@ -127,36 +127,45 @@ def Recognition(input_img, input_filter):
 # Getting CSV values from training
 convolved_nodes_to_output_nodes = pd_csv_to_2darray("FC.csv")
 input_filter = pd_csv_to_3darray("filters.csv")
-image_test1 = "number0.png"
-image_test2 = "number1.png"
-image_test3 = "number4.png"
-image_test4 = "number7.png"
-# image_test5 = "d3.png"
-# image_test6 = "d4.png"
-# image_test7 = "h1.png"
-# image_test8 = "h2.png"
-# image_test9 = "h3.png"
-# image_test10 = "h4.png"
+# image1 = "number0.png"
+# image2 = "number1.png"
+# image3 = "number4.png"
+# image4 = "number7.png"
 
-input_image = get_image(image_test1)
+# image1 = "number2.png"
+# image2 = "number3.png"
+# image3 = "number4.png"
+# image4 = "number7.png"
+
+# image1 = "number0.png"
+# image2 = "number1.png"
+# image3 = "number5.png"
+# image4 = "number6.png"
+
+image1 = "number0.png"
+image2 = "number9.png"
+image3 = "number8.png"
+image4 = "number7.png"
+
+input_image = get_image(image1)
 out, out_s = Recognition(input_image, input_filter)
 print("Predicted Image:",(np.argmax(out_s)+1))
 print(out_s)
 # print("Confidence:%.2f" % (np.amax(out_s)*100)+"%")
 
 
-input_image = get_image(image_test2)
+input_image = get_image(image2)
 out, out_s = Recognition(input_image, input_filter)
 print("Predicted Image:",(np.argmax(out_s)+1))
 print(out_s)
 
 
-input_image = get_image(image_test3)
+input_image = get_image(image3)
 out, out_s = Recognition(input_image, input_filter)
 print("Predicted Image:",(np.argmax(out_s)+1))
 print(out_s)
 
-input_image = get_image(image_test4)
+input_image = get_image(image4)
 out, out_s = Recognition(input_image, input_filter)
 print("Predicted Image:",(np.argmax(out_s)+1))
 print(out_s)
